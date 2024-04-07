@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        /* Adjust the height of the container if needed */
+        .container {
+            width: 400px;
+            position: relative;
+            /* Enable absolute positioning */
+        }
+
+        /* Set the height of each block */
+        .shape {
+            height: 100px;
+            border: .5px solid;
+        }
+
+        .row {
+            border-right: .5px solid;
+            border-left: .5px solid;
+        }
+
+        /* Style for the point */
+        .point {
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            /* to make it a circle */
+            position: absolute;
+            z-index: 999;
+            /* to ensure it appears above other elements */
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container" style="margin-top: 50px; zoom: 125%;">
+        <div class="row" style="border-top: .5px solid;">
+            <!-- First Row -->
+            <div class="col-6 shape">Athletic Shape</div>
+            <div class="col-3 shape">Slightly Obese</div>
+            <div class="col-3 shape">Obesity</div>
+        </div>
+        <div class="row">
+            <!-- Second Row -->
+            <div class="col-6 shape">Muscular Shape</div>
+            <div class="col-3 shape" style="border-bottom: 0px;">Average</div>
+            <div class="col-3 shape">Slightly Obese</div>
+        </div>
+        <div class="row">
+            <!-- Third Row -->
+            <div class="col-3 shape">Slim Muscular</div>
+            <div class="col-3 shape">Slim</div>
+            <div class="col-3 shape" style="border-top: 0px;"></div>
+            <div class="col-3 shape" style="border-bottom: 0px;">Sarcopenic Obesity</div>
+        </div>
+        <div class="row" style="border-bottom: .5px solid;">
+            <!-- Fourth Row -->
+            <div class="col-3 shape">Thin</div>
+            <div class="col-6 shape">Slightly Thin</div>
+            <div class="col-3 shape" style="border-top: 0px;"></div>
+        </div>
+
+        <!-- Point representing coordinates (x=18, y=19.5) -->
+        <div id="point" class="point"></div>
+    </div>
+
+    <div class="container" style="margin-top: 20px;">
+        <div class="row" style="border: none;">
+            <div class="col-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">BMI</span>
+                    </div>
+                    <input type="number" class="form-control" id="bmiInput">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">PBF</span>
+                    </div>
+                    <input type="number" class="form-control" id="pbfInput">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js (required for Bootstrap components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        var bmiInput = document.getElementById('bmiInput');
+        var pbfInput = document.getElementById('pbfInput');
+
+        bmiInput.addEventListener('input', function () {
+            drawPoint(bmiInput.value, pbfInput.value)
+        });
+
+        pbfInput.addEventListener('input', function () {
+            drawPoint(bmiInput.value, pbfInput.value)
+        });
+
+        function drawPoint(pbf, bmi) {
+            const point = document.getElementById('point');
+            point.style.left = getPBF(pbf) + 'px';
+            point.style.bottom = getBMI(bmi) + 'px';
+        }
+
+        function getPBF(pbf) {
+            var pbfInPx = 0
+
+            if (pbf < 5) {
+                pbf = 5;
+            } else if (pbf > 25) {
+                pbf = 25;
+            }
+
+            pbfInPx = 20 * pbf - 100;
+            return pbfInPx - 5;
+        }
+
+        function getBMI(bmi) {
+            var bmiInPx = 0
+
+            if (bmi < 15) {
+                bmi = 15;
+            } else if (bmi > 28) {
+                bmi = 28;
+            }
+
+            if (bmi <= 22) {
+                bmiInPx = (bmi - 15) * 100 / 3.5
+            } else {
+                bmiInPx = (bmi - 22) * 100 / 3 + 200
+            }
+
+            return bmiInPx - 5;
+        }
+
+        bmiInput.value = 17.5;
+        pbfInput.value = 22;
+        drawPoint(17.5, 22);
+
+        // drawPoint(10, 18.5);
+        // drawPoint(15, 22);
+        // drawPoint(20, 16.75);
+        // drawPoint(22.5, 26.5);
+
+        // drawPoint(17.6, 20.9);
+        // drawPoint(14.6, 21);
+        // drawPoint(13.3, 21.1);
+        // drawPoint(12.1, 21.6);
+        // drawPoint(11.6, 21.8);
+        // drawPoint(10.8, 22);
+        // drawPoint(10.6, 21.9);
+        // drawPoint(10.8, 21.9);
+        // drawPoint(10.1, 21.9);
+
+        // drawPoint(13.7, 21.4);
+        // drawPoint(12.3, 22.6);
+        // drawPoint(12.7, 23.5);
+        // drawPoint(13.8, 24.4);
+
+        // drawPoint(37.3, 24);
+        // drawPoint(17.2, 24.8);
+        // drawPoint(35.8, 23.1);
+        // drawPoint(44.5, 35.2);
+    </script>
+</body>
+
+</html>
