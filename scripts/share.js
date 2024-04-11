@@ -38,6 +38,7 @@ function isValidId() {
 }
 
 document.getElementById('share').addEventListener('click', function () {
+    document.getElementById("nameInput").value = "";
     shareModal = new bootstrap.Modal(document.getElementById("shareModal"));
     shareModal.show();
 });
