@@ -1,0 +1,50 @@
+body {
+    font-weight: 300;
+}
+
+.container {
+    position: relative;
+}
+
+.shape {
+    border: .5px solid;
+    padding-left: 6px;
+    padding-top: 2px;
+}
+
+.row {
+    border-right: .5px solid;
+    border-left: .5px solid;
+}
+
+.point {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    z-index: 999;
+}
+
+.secondaryText {
+    font-size: 13px;
+    margin-top: 2px;
+    color: rgb(130, 130, 130);
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 3px;
+}
+
+footer .footer-text {
+    font-size: 14px;
+    padding: 0px;
+    margin: 0px;
+    font-size: 14px;
+    font-weight: lighter;
+    text-decoration: none;
+    display: inline;
+}
