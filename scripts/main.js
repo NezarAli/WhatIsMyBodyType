@@ -1,6 +1,11 @@
+var bmiInput = document.getElementById('bmiInput');
+var pbfInput = document.getElementById('pbfInput');
+var nameInput = document.getElementById('nameInput');
+
 const containerWidth = 400;
 const shapeHeight = 100;
 const isMobile = window.innerWidth <= containerWidth;
+
 var ratio = 0;
 var fontSize = '0px';
 
@@ -21,8 +26,9 @@ document.querySelectorAll('.shape').forEach(function (shape) {
     shape.style.fontSize = fontSize;
 });
 
-var bmiInput = document.getElementById('bmiInput');
-var pbfInput = document.getElementById('pbfInput');
+document.getElementById('redirect').addEventListener('click', function () {
+    window.open('https://whatismybodytype.com/', '_self');
+});
 
 setCustomListener(bmiInput);
 setCustomListener(pbfInput);

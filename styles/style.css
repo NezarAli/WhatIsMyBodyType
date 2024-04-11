@@ -1,5 +1,11 @@
 body {
     font-weight: 300;
+    background-color: rgb(245, 245, 245);
+    padding-top: 50px
+}
+
+a {
+    text-decoration: none;
 }
 
 .container {
@@ -32,6 +38,12 @@ body {
     color: rgb(130, 130, 130);
 }
 
+.ternaryText {
+    font-size: 13px;
+    margin-top: 7px;
+    color: rgb(100, 100, 100);
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -45,6 +57,10 @@ footer .footer-text {
     margin: 0px;
     font-size: 14px;
     font-weight: lighter;
-    text-decoration: none;
     display: inline;
+}
+
+.share-button {
+    margin-right: 12px;
+    margin-left: 12px;
 }
