@@ -1,3 +1,7 @@
+[WhatIsMyBodyType.com](https://whatismybodytype.com/)
+
+-----
+
 # What Is My Body Type?
 
 Welcome to What Is My Body Type? This website helps you determine your body type based on your Body Mass Index (BMI) and Percent Body Fat (PBF). Knowing your body type can provide valuable insights into your health and fitness goals.
