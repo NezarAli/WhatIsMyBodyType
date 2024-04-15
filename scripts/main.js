@@ -43,7 +43,7 @@ function setCustomListener(field) {
             field.value = 100
         }
 
-        drawPoint(bmiInput.value, pbfInput.value);
+        drawPoint(pbfInput.value, bmiInput.value);
     });
 }
 
