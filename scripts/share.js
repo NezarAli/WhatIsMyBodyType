@@ -5,21 +5,21 @@ if (!isValidId()) {
     document.getElementById('share').style.display = 'inline'
 } else {
     const name = id.get('name');
-    const bmi = id.get('bmi');
     const pbf = id.get('pbf');
+    const bmi = id.get('bmi');
 
     if (name != "") {
         document.getElementById('header').style.display = 'block'
         document.getElementById('name').innerHTML = name + "'s"
     }
 
-    bmiInput.value = bmi;
     pbfInput.value = pbf;
+    bmiInput.value = bmi;
 
-    bmiInput.disabled = true;
     pbfInput.disabled = true;
+    bmiInput.disabled = true;
 
-    drawPoint(bmiInput.value, pbfInput.value);
+    drawPoint(pbfInput.value, bmiInput.value);
 
     document.getElementById('redirect').style.display = 'inline'
 }
