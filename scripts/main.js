@@ -4,17 +4,29 @@ var nameInput = document.getElementById('nameInput');
 
 const containerWidth = 400;
 const shapeHeight = 100;
-const isMobile = window.innerWidth <= containerWidth;
+const width = window.innerWidth;
 
 var ratio = 0;
 var fontSize = '0px';
 
-if (isMobile) {
-    ratio = 1.33333
-    fontSize = '12px';
-} else {
+if (width >= 1400) { // Very large desktops and full HD monitors
     ratio = 0.8
     fontSize = '16px';
+} else if (width >= 1200) { // Larger desktops and wide screens
+    ratio = 0.8
+    fontSize = '16px';
+} else if (width >= 992) { // Laptops and desktops
+    ratio = 0.5
+    fontSize = '23px';
+} else if (width >= 768) { // Tablets and small laptops
+    ratio = 0.6
+    fontSize = '20px';
+} else if (width >= 576) { // Larger mobile devices and small tablets
+    ratio = 0.6
+    fontSize = '20px';
+} else { // Mobile phones in portrait mode
+    ratio = 1.2
+    fontSize = '13px';
 }
 
 document.querySelectorAll('.container').forEach(function (container) {
@@ -86,9 +98,9 @@ function getBMI(bmi) {
     return bmiInPx - 5;
 }
 
-bmiInput.value = 17.5;
-pbfInput.value = 22;
-drawPoint(17.5, 22);
+pbfInput.value = 17.5;
+bmiInput.value = 22;
+drawPoint(pbfInput.value, bmiInput.value);
 
 // drawPoint(10, 18.5);
 // drawPoint(15, 22);
